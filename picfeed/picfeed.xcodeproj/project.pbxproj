@@ -10,7 +10,7 @@
 		BC4F94D51E8984EE00C9E047 /* CloudKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4F94D41E8984EE00C9E047 /* CloudKit.swift */; };
 		BC4F94D71E898D4900C9E047 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4F94D61E898D4900C9E047 /* HomeViewController.swift */; };
 		BC4F94D91E899FDF00C9E047 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC4F94D81E899FDF00C9E047 /* CloudKit.framework */; };
-		BC4F94DB1E8AD0E300C9E047 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4F94DA1E8AD0E300C9E047 /* Post.swift */; };
+		BC4F94DB1E8AD0E300C9E047 /* post.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4F94DA1E8AD0E300C9E047 /* post.swift */; };
 		BC4F94DD1E8AD36E00C9E047 /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4F94DC1E8AD36E00C9E047 /* UIExtensions.swift */; };
 		BC4F94DF1E8AE71A00C9E047 /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4F94DE1E8AE71A00C9E047 /* Filters.swift */; };
 		BCFC07BD1E897F4200A3F192 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFC07BC1E897F4200A3F192 /* AppDelegate.swift */; };
@@ -23,7 +23,7 @@
 		BC4F94D41E8984EE00C9E047 /* CloudKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKit.swift; sourceTree = "<group>"; };
 		BC4F94D61E898D4900C9E047 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		BC4F94D81E899FDF00C9E047 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
-		BC4F94DA1E8AD0E300C9E047 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		BC4F94DA1E8AD0E300C9E047 /* post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = post.swift; sourceTree = "<group>"; };
 		BC4F94DC1E8AD36E00C9E047 /* UIExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
 		BC4F94DE1E8AE71A00C9E047 /* Filters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filters.swift; sourceTree = "<group>"; };
 		BCFC07B91E897F4200A3F192 /* picfeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = picfeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,7 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				BC4F94DE1E8AE71A00C9E047 /* Filters.swift */,
-				BC4F94DA1E8AD0E300C9E047 /* Post.swift */,
+				BC4F94DA1E8AD0E300C9E047 /* post.swift */,
 				BC4F94DC1E8AD36E00C9E047 /* UIExtensions.swift */,
 			);
 			name = model;
@@ -208,7 +208,7 @@
 				BC4F94D71E898D4900C9E047 /* HomeViewController.swift in Sources */,
 				BC4F94DF1E8AE71A00C9E047 /* Filters.swift in Sources */,
 				BC4F94DD1E8AD36E00C9E047 /* UIExtensions.swift in Sources */,
-				BC4F94DB1E8AD0E300C9E047 /* Post.swift in Sources */,
+				BC4F94DB1E8AD0E300C9E047 /* post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

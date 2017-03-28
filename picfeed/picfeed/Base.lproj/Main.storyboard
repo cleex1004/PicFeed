@@ -39,19 +39,32 @@
                                     <action selector="postButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dQp-gB-Gum"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vdf-ua-kJe">
+                                <rect key="frame" x="51.666666666666657" y="844" width="310.66666666666663" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="FILTER"/>
+                                <connections>
+                                    <action selector="filterButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="umz-Nx-QuW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="VJu-Yy-fgB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7Nk-RY-sN0"/>
+                            <constraint firstItem="Vdf-ua-kJe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FLT-Ed-iSe"/>
                             <constraint firstItem="VJu-Yy-fgB" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.75" id="H5z-h3-GbL"/>
                             <constraint firstItem="VJu-Yy-fgB" firstAttribute="top" secondItem="OLg-Yx-65T" secondAttribute="bottom" constant="8" id="anZ-0w-OcZ"/>
                             <constraint firstItem="OLg-Yx-65T" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bZc-ie-gyS"/>
                             <constraint firstItem="OLg-Yx-65T" firstAttribute="width" secondItem="VJu-Yy-fgB" secondAttribute="width" id="gzF-4c-Suc"/>
+                            <constraint firstItem="Vdf-ua-kJe" firstAttribute="top" secondItem="VJu-Yy-fgB" secondAttribute="bottom" constant="200" id="hjY-y6-BLl"/>
                             <constraint firstItem="VJu-Yy-fgB" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.75" id="jNd-Y3-ho5"/>
                             <constraint firstItem="VJu-Yy-fgB" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="lfa-Ac-yPp"/>
+                            <constraint firstItem="Vdf-ua-kJe" firstAttribute="width" secondItem="VJu-Yy-fgB" secondAttribute="width" id="wS4-Ru-a3U"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="filterButtonTopConstraint" destination="hjY-y6-BLl" id="elZ-2b-rju"/>
                         <outlet property="imageView" destination="VJu-Yy-fgB" id="f09-dO-ybG"/>
                     </connections>
                 </viewController>

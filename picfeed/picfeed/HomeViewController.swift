@@ -16,10 +16,16 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     @IBOutlet weak var filterButtonTopConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var postButtonBottomConstraint: NSLayoutConstraint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         filterButtonTopConstraint.constant = 8
+        UIView.animate(withDuration: 0.4) {
+            self.view.layoutIfNeeded()
+        }
+        postButtonBottomConstraint.constant = 8
         UIView.animate(withDuration: 0.4) {
             self.view.layoutIfNeeded()
         }
@@ -80,6 +86,21 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                 self.imageView.image = filteredImage
             })
         }
+        let invertAction = UIAlertAction(title: "Invert", style: .default) { (action) in
+            Filters.filter(name: .invert, image: image, completion: { (filteredImage) in
+                self.imageView.image = filteredImage
+            })
+        }
+        let sepiaAction = UIAlertAction(title: "Sepia", style: .default) { (action) in
+            Filters.filter(name: .sepia, image: image, completion: { (filteredImage) in
+                self.imageView.image = filteredImage
+            })
+        }
+        let instantAction = UIAlertAction(title: "Instant", style: .default) { (action) in
+            Filters.filter(name: .instant, image: image, completion: { (filteredImage) in
+                self.imageView.image = filteredImage
+            })
+        }
         let resetAction = UIAlertAction(title: "Reset Image", style: .destructive) { (action) in
             self.imageView.image = Filters.originalImage
         }
@@ -87,6 +108,9 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         alertController.addAction(blackAndWhiteAction)
         alertController.addAction(vintageAction)
+        alertController.addAction(invertAction)
+        alertController.addAction(sepiaAction)
+        alertController.addAction(instantAction)
         alertController.addAction(resetAction)
         alertController.addAction(cancelAction)
         

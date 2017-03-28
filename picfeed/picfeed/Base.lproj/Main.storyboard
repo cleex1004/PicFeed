@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ThI-c7-79C">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home View Controller-->
+        <!--Item-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="picfeed" customModuleProvider="target" sceneMemberID="viewController">
@@ -31,7 +31,7 @@
                                 </connections>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OLg-Yx-65T">
-                                <rect key="frame" x="51.666666666666657" y="54" width="310.66666666666663" height="30"/>
+                                <rect key="frame" x="51.666666666666657" y="-138" width="310.66666666666663" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="POST"/>
@@ -54,7 +54,7 @@
                             <constraint firstItem="VJu-Yy-fgB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7Nk-RY-sN0"/>
                             <constraint firstItem="Vdf-ua-kJe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FLT-Ed-iSe"/>
                             <constraint firstItem="VJu-Yy-fgB" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.75" id="H5z-h3-GbL"/>
-                            <constraint firstItem="VJu-Yy-fgB" firstAttribute="top" secondItem="OLg-Yx-65T" secondAttribute="bottom" constant="8" id="anZ-0w-OcZ"/>
+                            <constraint firstItem="VJu-Yy-fgB" firstAttribute="top" secondItem="OLg-Yx-65T" secondAttribute="bottom" constant="200" id="anZ-0w-OcZ"/>
                             <constraint firstItem="OLg-Yx-65T" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bZc-ie-gyS"/>
                             <constraint firstItem="OLg-Yx-65T" firstAttribute="width" secondItem="VJu-Yy-fgB" secondAttribute="width" id="gzF-4c-Suc"/>
                             <constraint firstItem="Vdf-ua-kJe" firstAttribute="top" secondItem="VJu-Yy-fgB" secondAttribute="bottom" constant="200" id="hjY-y6-BLl"/>
@@ -63,9 +63,11 @@
                             <constraint firstItem="Vdf-ua-kJe" firstAttribute="width" secondItem="VJu-Yy-fgB" secondAttribute="width" id="wS4-Ru-a3U"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="nsB-lJ-TFk"/>
                     <connections>
                         <outlet property="filterButtonTopConstraint" destination="hjY-y6-BLl" id="elZ-2b-rju"/>
                         <outlet property="imageView" destination="VJu-Yy-fgB" id="f09-dO-ybG"/>
+                        <outlet property="postButtonBottomConstraint" destination="anZ-0w-OcZ" id="SDH-NN-Cgs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -75,6 +77,24 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="119.83695652173914"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="wKj-of-CeM">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="ThI-c7-79C" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="y72-Ne-rcL">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Xxg-yn-p1t"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bOw-b0-F0x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="140.57971014492756" y="119.83695652173914"/>
         </scene>
     </scenes>
     <resources>

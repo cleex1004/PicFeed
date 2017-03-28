@@ -44,6 +44,7 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         }
         //print("Info:\(info)")
         self.dismiss(animated: true, completion: nil)
+        //can call imagePickerControllerDidCancel
     }
     
     @IBAction func imageTapped(_ sender: Any) {

@@ -9,16 +9,17 @@
 /* Begin PBXBuildFile section */
 		BC4F94D51E8984EE00C9E047 /* CloudKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4F94D41E8984EE00C9E047 /* CloudKit.swift */; };
 		BC4F94D71E898D4900C9E047 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4F94D61E898D4900C9E047 /* HomeViewController.swift */; };
+		BC4F94D91E899FDF00C9E047 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC4F94D81E899FDF00C9E047 /* CloudKit.framework */; };
 		BCFC07BD1E897F4200A3F192 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFC07BC1E897F4200A3F192 /* AppDelegate.swift */; };
 		BCFC07C21E897F4200A3F192 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCFC07C01E897F4200A3F192 /* Main.storyboard */; };
 		BCFC07C41E897F4200A3F192 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCFC07C31E897F4200A3F192 /* Assets.xcassets */; };
 		BCFC07C71E897F4200A3F192 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCFC07C51E897F4200A3F192 /* LaunchScreen.storyboard */; };
-		BCFC07D11E89813800A3F192 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCFC07D01E89813800A3F192 /* CloudKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		BC4F94D41E8984EE00C9E047 /* CloudKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKit.swift; sourceTree = "<group>"; };
 		BC4F94D61E898D4900C9E047 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		BC4F94D81E899FDF00C9E047 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		BCFC07B91E897F4200A3F192 /* picfeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = picfeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCFC07BC1E897F4200A3F192 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCFC07C11E897F4200A3F192 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -26,7 +27,6 @@
 		BCFC07C61E897F4200A3F192 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BCFC07C81E897F4200A3F192 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BCFC07CE1E897F7D00A3F192 /* picfeed.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = picfeed.entitlements; sourceTree = "<group>"; };
-		BCFC07D01E89813800A3F192 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,7 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BCFC07D11E89813800A3F192 /* CloudKit.framework in Frameworks */,
+				BC4F94D91E899FDF00C9E047 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,7 +108,7 @@
 		BCFC07CF1E89813800A3F192 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BCFC07D01E89813800A3F192 /* CloudKit.framework */,
+				BC4F94D81E899FDF00C9E047 /* CloudKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -323,7 +323,7 @@
 				DEVELOPMENT_TEAM = JW369YLHP8;
 				INFOPLIST_FILE = picfeed/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.christinalee.picfeed;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.christina-lee.picfeed";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -337,7 +337,7 @@
 				DEVELOPMENT_TEAM = JW369YLHP8;
 				INFOPLIST_FILE = picfeed/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.christinalee.picfeed;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.christina-lee.picfeed";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

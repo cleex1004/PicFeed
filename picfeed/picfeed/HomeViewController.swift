@@ -49,6 +49,10 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
         
+        if !UIImagePickerController.isSourceTypeAvailable(.camera){
+            cameraAction.isEnabled = false
+        }
+        
         actionSheetController.addAction(cameraAction)
         actionSheetController.addAction(photoAction)
         actionSheetController.addAction(cancelAction)

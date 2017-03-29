@@ -21,6 +21,12 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
         filterButtonTopConstraint.constant = 8
         UIView.animate(withDuration: 0.4) {
             self.view.layoutIfNeeded()
@@ -29,7 +35,7 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         UIView.animate(withDuration: 0.4) {
             self.view.layoutIfNeeded()
         }
-        // Do any additional setup after loading the view.
+
     }
 
     func presentImagePickerWith(sourceType: UIImagePickerControllerSourceType) {

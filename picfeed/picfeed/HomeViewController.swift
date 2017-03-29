@@ -81,27 +81,27 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         let alertController = UIAlertController(title: "Filter", message: "Please select a filter", preferredStyle: .alert)
         
         let blackAndWhiteAction = UIAlertAction(title: "Black & White", style: .default) { (action) in
-            Filters.filter(name: .blackAndWhite, image: image, completion: { (filteredImage) in
+            Filters.shared.filter(name: .blackAndWhite, image: image, completion: { (filteredImage) in
                 self.imageView.image = filteredImage
             })
         }
         let vintageAction = UIAlertAction(title: "Vintage", style: .default) { (action) in
-            Filters.filter(name: .vintage, image: image, completion: { (filteredImage) in
+            Filters.shared.filter(name: .vintage, image: image, completion: { (filteredImage) in
                 self.imageView.image = filteredImage
             })
         }
         let invertAction = UIAlertAction(title: "Invert", style: .default) { (action) in
-            Filters.filter(name: .invert, image: image, completion: { (filteredImage) in
+            Filters.shared.filter(name: .invert, image: image, completion: { (filteredImage) in
                 self.imageView.image = filteredImage
             })
         }
         let sepiaAction = UIAlertAction(title: "Sepia", style: .default) { (action) in
-            Filters.filter(name: .sepia, image: image, completion: { (filteredImage) in
+            Filters.shared.filter(name: .sepia, image: image, completion: { (filteredImage) in
                 self.imageView.image = filteredImage
             })
         }
         let instantAction = UIAlertAction(title: "Instant", style: .default) { (action) in
-            Filters.filter(name: .instant, image: image, completion: { (filteredImage) in
+            Filters.shared.filter(name: .instant, image: image, completion: { (filteredImage) in
                 self.imageView.image = filteredImage
             })
         }

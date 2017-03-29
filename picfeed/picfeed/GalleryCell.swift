@@ -25,6 +25,6 @@ class GalleryCell: UICollectionViewCell {
         super.prepareForReuse()
         
         self.ImageView.image = nil
-        self.DateLabel = nil
+        self.DateLabel.text = nil
     }
 }

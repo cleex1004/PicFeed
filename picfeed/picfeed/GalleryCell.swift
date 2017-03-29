@@ -12,9 +12,12 @@ class GalleryCell: UICollectionViewCell {
     
     @IBOutlet weak var ImageView: UIImageView!
     
+    @IBOutlet weak var DateLabel: UILabel!
+    
     var post : Post! {
         didSet {
             self.ImageView.image = post.image
+            self.DateLabel.text = String(describing: post.date!)
         }
     }
     
@@ -22,5 +25,6 @@ class GalleryCell: UICollectionViewCell {
         super.prepareForReuse()
         
         self.ImageView.image = nil
+        self.DateLabel = nil
     }
 }

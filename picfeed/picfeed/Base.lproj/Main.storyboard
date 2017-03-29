@@ -98,32 +98,42 @@
                                     <constraint firstAttribute="width" constant="414" id="lkZ-XZ-puO"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oRc-kO-Ci0">
-                                    <size key="itemSize" width="211" height="216"/>
+                                    <size key="itemSize" width="211" height="242"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GalleryCell" id="pWF-EF-dzO" customClass="GalleryCell" customModule="picfeed" customModuleProvider="target">
-                                        <rect key="frame" x="102" y="0.0" width="211" height="216"/>
+                                        <rect key="frame" x="102" y="0.0" width="211" height="242"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="211" height="216"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="211" height="242"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="drJ-gZ-kQw">
-                                                    <rect key="frame" x="0.0" y="0.0" width="211" height="216"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="211" height="214"/>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Posted" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GVc-oT-7Cl">
+                                                    <rect key="frame" x="-1" y="222" width="211.33333333333334" height="12"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </view>
                                         <constraints>
+                                            <constraint firstItem="GVc-oT-7Cl" firstAttribute="width" secondItem="pWF-EF-dzO" secondAttribute="width" id="9OP-8W-gBX"/>
+                                            <constraint firstItem="GVc-oT-7Cl" firstAttribute="centerX" secondItem="pWF-EF-dzO" secondAttribute="centerX" id="CSJ-9q-gAh"/>
                                             <constraint firstItem="drJ-gZ-kQw" firstAttribute="top" secondItem="pWF-EF-dzO" secondAttribute="top" id="GAp-ZV-9Um"/>
                                             <constraint firstItem="drJ-gZ-kQw" firstAttribute="leading" secondItem="pWF-EF-dzO" secondAttribute="leading" id="ZiN-TF-PSG"/>
-                                            <constraint firstAttribute="bottom" secondItem="drJ-gZ-kQw" secondAttribute="bottom" id="hcd-8V-ENB"/>
                                             <constraint firstAttribute="trailing" secondItem="drJ-gZ-kQw" secondAttribute="trailing" id="vQb-aD-IFs"/>
+                                            <constraint firstAttribute="bottom" secondItem="GVc-oT-7Cl" secondAttribute="bottom" constant="8" id="xXK-Hf-wfO"/>
+                                            <constraint firstItem="GVc-oT-7Cl" firstAttribute="top" secondItem="drJ-gZ-kQw" secondAttribute="bottom" constant="8" id="xgF-N2-9XX"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="ImageView" destination="drJ-gZ-kQw" id="oY6-Qf-1f9"/>
+                                            <outlet property="dateLabel" destination="GVc-oT-7Cl" id="MYh-f1-6Tb"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

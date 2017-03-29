@@ -15,7 +15,7 @@ class GalleryViewController: UIViewController {
     var allPosts = [Post]() {
         didSet {
             self.collectionView.reloadData()
-        }
+        } 
     }
     
     override func viewDidLoad() {

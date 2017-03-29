@@ -63,7 +63,9 @@
                             <constraint firstItem="Vdf-ua-kJe" firstAttribute="width" secondItem="VJu-Yy-fgB" secondAttribute="width" id="wS4-Ru-a3U"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Post" id="nsB-lJ-TFk"/>
+                    <tabBarItem key="tabBarItem" title="Post" id="nsB-lJ-TFk">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-17"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="filterButtonTopConstraint" destination="hjY-y6-BLl" id="elZ-2b-rju"/>
                         <outlet property="imageView" destination="VJu-Yy-fgB" id="f09-dO-ybG"/>
@@ -147,7 +149,9 @@
                             <constraint firstAttribute="trailing" secondItem="gvS-7B-oKV" secondAttribute="trailing" id="wPl-Nw-ArC"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Gallery" id="PfC-CE-eRv"/>
+                    <tabBarItem key="tabBarItem" title="Gallery" id="PfC-CE-eRv">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-17"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="collectionView" destination="gvS-7B-oKV" id="APt-FZ-hnZ"/>
                     </connections>

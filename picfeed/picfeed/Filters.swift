@@ -29,7 +29,7 @@ class Filters {
         self.context = CIContext(eaglContext: eaglContext, options: options)
     }
     
-    static var originalImage = UIImage()
+    static var originalImage : UIImage?
     
     func filter(name: FilterName, image: UIImage, completion: @escaping FilterCompletion){
         OperationQueue().addOperation {

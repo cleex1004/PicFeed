@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Social
 
 class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -43,11 +44,11 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         super.viewDidAppear(animated)
         
         filterButtonTopConstraint.constant = 8
-        UIView.animate(withDuration: 0.4) {
+        UIView.animate(withDuration: 0.5) {
             self.view.layoutIfNeeded()
         }
         postButtonBottomConstraint.constant = 8
-        UIView.animate(withDuration: 0.4) {
+        UIView.animate(withDuration: 0.5) {
             self.view.layoutIfNeeded()
         }
 
@@ -97,7 +98,7 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         guard let image = self.imageView.image else { return }
         
         self.collectionViewHeightConstraint.constant = 150
-        UIView.animate(withDuration: 0.5) { 
+        UIView.animate(withDuration: 0.5) {
             self.view.layoutIfNeeded()
         }
         
@@ -144,6 +145,14 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 //        self.present(alertController, animated: true, completion: nil)
     }
     
+    @IBAction func userLongPressed(_ sender: UILongPressGestureRecognizer) {
+        if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeTwitter) {
+            guard let composeController = SLComposeViewController(forServiceType: SLServiceTypeTwitter) else { return }
+            
+            composeController.add(self.imageView.image)
+            self.present(composeController, animated: true, completion: nil)
+        }
+    }
     
     func presentActionSheet() {
         let actionSheetController = UIAlertController(title: "Source", message: "Please Select Source Tyle", preferredStyle: .actionSheet)

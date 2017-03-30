@@ -28,6 +28,7 @@
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="Usr-fK-ssu" appends="YES" id="IkM-7t-N6N"/>
+                                    <outletCollection property="gestureRecognizers" destination="knV-Ca-SeH" appends="YES" id="Npq-cI-cQh"/>
                                 </connections>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OLg-Yx-65T">
@@ -117,6 +118,11 @@
                         <action selector="imageTapped:" destination="BYZ-38-t0r" id="Eph-m9-BKO"/>
                     </connections>
                 </tapGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="knV-Ca-SeH">
+                    <connections>
+                        <action selector="userLongPressed:" destination="BYZ-38-t0r" id="Us3-8F-klD"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="119.83695652173914"/>
         </scene>
@@ -135,6 +141,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gvS-7B-oKV">
                                 <rect key="frame" x="0.0" y="20" width="414" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oRc-kO-Ci0">
                                     <size key="itemSize" width="211" height="242"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -175,9 +182,13 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="43T-Xn-nd4" appends="YES" id="wIM-kT-gXb"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="HFF-UG-P66" firstAttribute="top" secondItem="gvS-7B-oKV" secondAttribute="bottom" id="B4V-Qe-JG9"/>
                             <constraint firstItem="gvS-7B-oKV" firstAttribute="leading" secondItem="PHe-cF-Kij" secondAttribute="leading" id="FSX-kA-mzT"/>
@@ -193,6 +204,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cno-RT-OLD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pinchGestureRecognizer id="43T-Xn-nd4">
+                    <connections>
+                        <action selector="userPinched:" destination="zlT-64-Tj6" id="nM8-xJ-OpV"/>
+                    </connections>
+                </pinchGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1046.376811594203" y="945.6521739130435"/>
         </scene>

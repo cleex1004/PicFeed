@@ -67,13 +67,13 @@
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fAF-zb-BpI">
-                                                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="103"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fAF-zb-BpI">
+                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="103"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Filter " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PB6-Xn-E0T">
-                                                    <rect key="frame" x="0.0" y="108" width="0.0" height="12"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filter " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PB6-Xn-E0T">
+                                                    <rect key="frame" x="0.0" y="108" width="100" height="12"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -169,12 +169,12 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="drJ-gZ-kQw">
-                                                    <rect key="frame" x="0.0" y="0.0" width="211" height="218.66666666666666"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="211" height="212.66666666666666"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Posted" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GVc-oT-7Cl">
-                                                    <rect key="frame" x="-1" y="223.66666666666663" width="211.33333333333334" height="13.333333333333343"/>
+                                                    <rect key="frame" x="-1" y="220.66666666666663" width="211.33333333333334" height="13.333333333333343"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -185,8 +185,8 @@
                                             <constraint firstItem="drJ-gZ-kQw" firstAttribute="top" secondItem="pWF-EF-dzO" secondAttribute="top" id="GAp-ZV-9Um"/>
                                             <constraint firstItem="drJ-gZ-kQw" firstAttribute="leading" secondItem="pWF-EF-dzO" secondAttribute="leading" id="ZiN-TF-PSG"/>
                                             <constraint firstAttribute="trailing" secondItem="drJ-gZ-kQw" secondAttribute="trailing" id="vQb-aD-IFs"/>
-                                            <constraint firstAttribute="bottom" secondItem="GVc-oT-7Cl" secondAttribute="bottom" constant="5" id="xXK-Hf-wfO"/>
-                                            <constraint firstItem="GVc-oT-7Cl" firstAttribute="top" secondItem="drJ-gZ-kQw" secondAttribute="bottom" constant="5" id="xgF-N2-9XX"/>
+                                            <constraint firstAttribute="bottom" secondItem="GVc-oT-7Cl" secondAttribute="bottom" constant="8" id="xXK-Hf-wfO"/>
+                                            <constraint firstItem="GVc-oT-7Cl" firstAttribute="top" secondItem="drJ-gZ-kQw" secondAttribute="bottom" constant="8" id="xgF-N2-9XX"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="ImageView" destination="drJ-gZ-kQw" id="oY6-Qf-1f9"/>

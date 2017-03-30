@@ -25,6 +25,8 @@ enum PostError : Error {
     case writingDataToDisk
 }
 
+
+//MARK: extension for Post
 extension Post {
     class func recordFor(post: Post) throws -> CKRecord? {
         guard let data = UIImageJPEGRepresentation(post.image, 0.7) else { throw PostError.writingImageToData }

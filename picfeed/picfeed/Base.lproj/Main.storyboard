@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IMG_1188" translatesAutoresizingMaskIntoConstraints="NO" id="VJu-Yy-fgB">
-                                <rect key="frame" x="51.666666666666657" y="92" width="310.66666666666663" height="552"/>
+                                <rect key="frame" x="10.333333333333343" y="92" width="393.33333333333337" height="552"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -32,8 +32,8 @@
                                 </connections>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OLg-Yx-65T">
-                                <rect key="frame" x="51.666666666666657" y="-138" width="310.66666666666663" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="10.333333333333343" y="-138" width="393.33333333333337" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="POST"/>
                                 <connections>
@@ -41,8 +41,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vdf-ua-kJe">
-                                <rect key="frame" x="51.666666666666657" y="844" width="310.66666666666663" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="10.333333333333343" y="844" width="393.33333333333337" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="FILTER"/>
                                 <connections>
@@ -56,7 +56,7 @@
                                     <constraint firstAttribute="height" id="UJJ-sc-QwL"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Mre-fK-zey">
-                                    <size key="itemSize" width="100" height="100"/>
+                                    <size key="itemSize" width="100" height="125"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -67,16 +67,28 @@
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fAF-zb-BpI"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fAF-zb-BpI">
+                                                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="103"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Filter " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PB6-Xn-E0T">
+                                                    <rect key="frame" x="0.0" y="108" width="0.0" height="12"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </view>
                                         <constraints>
+                                            <constraint firstItem="PB6-Xn-E0T" firstAttribute="top" secondItem="fAF-zb-BpI" secondAttribute="bottom" constant="5" id="75Q-4X-u2b"/>
                                             <constraint firstAttribute="trailing" secondItem="fAF-zb-BpI" secondAttribute="trailing" id="Dvy-Mg-cq9"/>
-                                            <constraint firstAttribute="bottom" secondItem="fAF-zb-BpI" secondAttribute="bottom" id="UdW-bD-nbe"/>
                                             <constraint firstItem="fAF-zb-BpI" firstAttribute="leading" secondItem="gVi-VF-a5X" secondAttribute="leading" id="Zjn-Nb-aRz"/>
+                                            <constraint firstAttribute="bottom" secondItem="PB6-Xn-E0T" secondAttribute="bottom" constant="5" id="h5i-Bm-mSu"/>
+                                            <constraint firstItem="PB6-Xn-E0T" firstAttribute="centerX" secondItem="gVi-VF-a5X" secondAttribute="centerX" id="jb5-yJ-fAH"/>
                                             <constraint firstItem="fAF-zb-BpI" firstAttribute="top" secondItem="gVi-VF-a5X" secondAttribute="top" id="s9u-Ns-Mth"/>
+                                            <constraint firstItem="PB6-Xn-E0T" firstAttribute="width" secondItem="gVi-VF-a5X" secondAttribute="width" id="wOf-kV-oRt"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="filterDescriptionLabel" destination="PB6-Xn-E0T" id="Q3Y-1Q-YUv"/>
                                             <outlet property="imageView" destination="fAF-zb-BpI" id="l7G-Sb-5Me"/>
                                         </connections>
                                     </collectionViewCell>
@@ -87,7 +99,7 @@
                         <constraints>
                             <constraint firstItem="VJu-Yy-fgB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7Nk-RY-sN0"/>
                             <constraint firstItem="Vdf-ua-kJe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FLT-Ed-iSe"/>
-                            <constraint firstItem="VJu-Yy-fgB" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.75" id="H5z-h3-GbL"/>
+                            <constraint firstItem="VJu-Yy-fgB" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.95" id="H5z-h3-GbL"/>
                             <constraint firstAttribute="trailing" secondItem="tyX-9w-ArD" secondAttribute="trailing" id="Jz0-ET-6RS"/>
                             <constraint firstItem="tyX-9w-ArD" firstAttribute="bottom" secondItem="VJu-Yy-fgB" secondAttribute="bottom" id="WrP-wW-iI4"/>
                             <constraint firstItem="VJu-Yy-fgB" firstAttribute="top" secondItem="OLg-Yx-65T" secondAttribute="bottom" constant="200" id="anZ-0w-OcZ"/>
@@ -157,12 +169,12 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="drJ-gZ-kQw">
-                                                    <rect key="frame" x="0.0" y="0.0" width="211" height="212.66666666666666"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="211" height="218.66666666666666"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Posted" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GVc-oT-7Cl">
-                                                    <rect key="frame" x="-1" y="220.66666666666663" width="211.33333333333334" height="13.333333333333343"/>
+                                                    <rect key="frame" x="-1" y="223.66666666666663" width="211.33333333333334" height="13.333333333333343"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -173,8 +185,8 @@
                                             <constraint firstItem="drJ-gZ-kQw" firstAttribute="top" secondItem="pWF-EF-dzO" secondAttribute="top" id="GAp-ZV-9Um"/>
                                             <constraint firstItem="drJ-gZ-kQw" firstAttribute="leading" secondItem="pWF-EF-dzO" secondAttribute="leading" id="ZiN-TF-PSG"/>
                                             <constraint firstAttribute="trailing" secondItem="drJ-gZ-kQw" secondAttribute="trailing" id="vQb-aD-IFs"/>
-                                            <constraint firstAttribute="bottom" secondItem="GVc-oT-7Cl" secondAttribute="bottom" constant="8" id="xXK-Hf-wfO"/>
-                                            <constraint firstItem="GVc-oT-7Cl" firstAttribute="top" secondItem="drJ-gZ-kQw" secondAttribute="bottom" constant="8" id="xgF-N2-9XX"/>
+                                            <constraint firstAttribute="bottom" secondItem="GVc-oT-7Cl" secondAttribute="bottom" constant="5" id="xXK-Hf-wfO"/>
+                                            <constraint firstItem="GVc-oT-7Cl" firstAttribute="top" secondItem="drJ-gZ-kQw" secondAttribute="bottom" constant="5" id="xgF-N2-9XX"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="ImageView" destination="drJ-gZ-kQw" id="oY6-Qf-1f9"/>

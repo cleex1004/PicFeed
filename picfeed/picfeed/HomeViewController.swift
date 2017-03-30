@@ -9,10 +9,10 @@
 import UIKit
 import Social
 
-class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class HomeViewController: UIViewController, UINavigationControllerDelegate {
     
     let imagePicker = UIImagePickerController()
-    let filterNames = [FilterName.blackAndWhite, FilterName.instant, FilterName.invert, FilterName.sepia, FilterName.vintage]
+    let filterNames = [FilterName.BlackAndWhite, FilterName.Instant, FilterName.Inverted, FilterName.Sepia, FilterName.Vintage]
 
     @IBOutlet weak var imageView: UIImageView!
     
@@ -26,9 +26,10 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Filters.originalImage = imageView.image
         self.collectionView.dataSource = self
+        self.collectionView.delegate = self
         setupGalleryDelegate()
+        Filters.originalImage = imageView.image
     }
     
     func setupGalleryDelegate() {
@@ -54,28 +55,29 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 
     }
 
-    func presentImagePickerWith(sourceType: UIImagePickerControllerSourceType) {
-        
-        self.imagePicker.delegate = self
-        self.imagePicker.sourceType = sourceType
-        self.present(self.imagePicker, animated: true, completion: nil)
-    }
+//    func presentImagePickerWith(sourceType: UIImagePickerControllerSourceType) {
+//        
+//        self.imagePicker.delegate = self
+//        self.imagePicker.sourceType = sourceType
+//        self.present(self.imagePicker, animated: true, completion: nil)
+//    }
+//    
+//    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+//        self.dismiss(animated: true, completion: nil)
+//    }
+//    
+//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+//        if let originalImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+//            self.imageView.image = originalImage
+//            Filters.originalImage = originalImage
+//            self.collectionView.reloadData()
+//        }
+//        //print("Info:\(info)")
+//        self.dismiss(animated: true, completion: nil)
+//        //can call imagePickerControllerDidCancel
+//    }
     
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let originalImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            self.imageView.image = originalImage
-            Filters.originalImage = originalImage
-            self.collectionView.reloadData()
-        }
-        //print("Info:\(info)")
-        self.dismiss(animated: true, completion: nil)
-        //can call imagePickerControllerDidCancel
-    }
-    
+//MARK: Actions
     @IBAction func imageTapped(_ sender: Any) {
         print("User Tapped Image!")
         self.presentActionSheet()
@@ -95,54 +97,21 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     
     @IBAction func filterButtonPressed(_ sender: Any) {
-        guard let image = self.imageView.image else { return }
+        //guard let image = self.imageView.image else { return }
         
-        self.collectionViewHeightConstraint.constant = 150
-        UIView.animate(withDuration: 0.5) {
-            self.view.layoutIfNeeded()
+        if self.collectionViewHeightConstraint.constant == 0 {
+            self.collectionViewHeightConstraint.constant = 150
+            UIView.animate(withDuration: 0.5) {
+                self.view.layoutIfNeeded()
+            }
+        } else {
+            self.collectionViewHeightConstraint.constant = 0
+            UIView.animate(withDuration: 0.5, animations: { 
+                self.view.layoutIfNeeded()
+            })
         }
         
-//        let alertController = UIAlertController(title: "Filter", message: "Please select a filter", preferredStyle: .alert)
-//        
-//        let blackAndWhiteAction = UIAlertAction(title: "Black & White", style: .default) { (action) in
-//            Filters.shared.filter(name: .blackAndWhite, image: image, completion: { (filteredImage) in
-//                self.imageView.image = filteredImage
-//            })
-//        }
-//        let vintageAction = UIAlertAction(title: "Vintage", style: .default) { (action) in
-//            Filters.shared.filter(name: .vintage, image: image, completion: { (filteredImage) in
-//                self.imageView.image = filteredImage
-//            })
-//        }
-//        let invertAction = UIAlertAction(title: "Invert", style: .default) { (action) in
-//            Filters.shared.filter(name: .invert, image: image, completion: { (filteredImage) in
-//                self.imageView.image = filteredImage
-//            })
-//        }
-//        let sepiaAction = UIAlertAction(title: "Sepia", style: .default) { (action) in
-//            Filters.shared.filter(name: .sepia, image: image, completion: { (filteredImage) in
-//                self.imageView.image = filteredImage
-//            })
-//        }
-//        let instantAction = UIAlertAction(title: "Instant", style: .default) { (action) in
-//            Filters.shared.filter(name: .instant, image: image, completion: { (filteredImage) in
-//                self.imageView.image = filteredImage
-//            })
-//        }
-//        let resetAction = UIAlertAction(title: "Reset Image", style: .destructive) { (action) in
-//            self.imageView.image = Filters.originalImage
-//        }
-//        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-//        
-//        alertController.addAction(blackAndWhiteAction)
-//        alertController.addAction(vintageAction)
-//        alertController.addAction(invertAction)
-//        alertController.addAction(sepiaAction)
-//        alertController.addAction(instantAction)
-//        alertController.addAction(resetAction)
-//        alertController.addAction(cancelAction)
-//        
-//        self.present(alertController, animated: true, completion: nil)
+        
     }
     
     @IBAction func userLongPressed(_ sender: UILongPressGestureRecognizer) {
@@ -176,9 +145,33 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
 }
 
+//MARK: UIImagePickerController Delegate
+extension HomeViewController : UIImagePickerControllerDelegate {
+    func presentImagePickerWith(sourceType: UIImagePickerControllerSourceType) {
+        
+        self.imagePicker.delegate = self
+        self.imagePicker.sourceType = sourceType
+        self.present(self.imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let originalImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            self.imageView.image = originalImage
+            Filters.originalImage = originalImage
+            self.collectionView.reloadData()
+        }
+        //print("Info:\(info)")
+        self.dismiss(animated: true, completion: nil)
+        //can call imagePickerControllerDidCancel
+    }
+}
 
 //MARK: UICollectionView DataSource
-extension HomeViewController : UICollectionViewDataSource {
+extension HomeViewController : UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let filterCell = collectionView.dequeueReusableCell(withReuseIdentifier: FilterCell.identifier, for: indexPath) as! FilterCell
         
@@ -188,12 +181,23 @@ extension HomeViewController : UICollectionViewDataSource {
         
         Filters.shared.filter(name: filterName, image: resizedImage) { (filteredImage) in
             filterCell.imageView.image = filteredImage
+            filterCell.filterDescriptionLabel.text = String(describing: filterName)
         }
         
         return filterCell
     }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return filterNames.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath.row)
+        guard let image = Filters.originalImage else { return }
+        let filter = self.filterNames[indexPath.row]
+        Filters.shared.filter(name: filter, image: image) { (filteredImage) in
+            self.imageView.image = filteredImage
+        }
     }
 }
 
@@ -201,10 +205,59 @@ extension HomeViewController : UICollectionViewDataSource {
 extension HomeViewController : GalleryViewControllerDelegate {
     func galleryController(didSelect image: UIImage) {
         self.imageView.image = image
+        Filters.originalImage = image
+        self.collectionViewHeightConstraint.constant = 0
         self.tabBarController?.selectedIndex = 0
     }
 }
 
+
+//old action sheet
+//        @IBAction func filterButtonPressed(_ sender: Any) {
+//            guard let image = self.imageView.image else { return }
+//    
+//            let alertController = UIAlertController(title: "Filter", message: "Please select a filter", preferredStyle: .alert)
+//    
+//            let blackAndWhiteAction = UIAlertAction(title: "Black & White", style: .default) { (action) in
+//                Filters.shared.filter(name: .blackAndWhite, image: image, completion: { (filteredImage) in
+//                    self.imageView.image = filteredImage
+//                })
+//            }
+//            let vintageAction = UIAlertAction(title: "Vintage", style: .default) { (action) in
+//                Filters.shared.filter(name: .vintage, image: image, completion: { (filteredImage) in
+//                    self.imageView.image = filteredImage
+//                })
+//            }
+//            let invertAction = UIAlertAction(title: "Invert", style: .default) { (action) in
+//                Filters.shared.filter(name: .invert, image: image, completion: { (filteredImage) in
+//                    self.imageView.image = filteredImage
+//                })
+//            }
+//            let sepiaAction = UIAlertAction(title: "Sepia", style: .default) { (action) in
+//                Filters.shared.filter(name: .sepia, image: image, completion: { (filteredImage) in
+//                    self.imageView.image = filteredImage
+//                })
+//            }
+//            let instantAction = UIAlertAction(title: "Instant", style: .default) { (action) in
+//                Filters.shared.filter(name: .instant, image: image, completion: { (filteredImage) in
+//                    self.imageView.image = filteredImage
+//                })
+//            }
+//            let resetAction = UIAlertAction(title: "Reset Image", style: .destructive) { (action) in
+//                self.imageView.image = Filters.originalImage
+//            }
+//            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+//    
+//            alertController.addAction(blackAndWhiteAction)
+//            alertController.addAction(vintageAction)
+//            alertController.addAction(invertAction)
+//            alertController.addAction(sepiaAction)
+//            alertController.addAction(instantAction)
+//            alertController.addAction(resetAction)
+//            alertController.addAction(cancelAction)
+//            
+//            self.present(alertController, animated: true, completion: nil)
+//         }
 
 
 

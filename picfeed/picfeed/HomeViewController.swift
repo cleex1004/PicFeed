@@ -85,6 +85,7 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate {
                 })
             }
         }
+        
         let publicAction = UIAlertAction(title: "Public Post", style: .default) { (action) in
             if let image = self.imageView.image {
                 let newPost = Post(image: image, date: nil)
@@ -97,8 +98,12 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate {
                 })
             }
         }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
         alertController.addAction(privateAction)
         alertController.addAction(publicAction)
+        alertController.addAction(cancelAction)
         
         self.present(alertController, animated: true, completion: nil)
     }

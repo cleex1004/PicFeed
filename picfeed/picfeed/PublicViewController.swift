@@ -78,7 +78,7 @@ extension PublicViewController : UICollectionViewDataSource, UICollectionViewDel
         return allPosts.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let delegate = self.delegate else { return }
         
         let selectedPost = self.allPosts[indexPath.row]

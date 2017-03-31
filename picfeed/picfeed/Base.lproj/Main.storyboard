@@ -10,6 +10,91 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Public-->
+        <scene sceneID="EwX-Tr-Scx">
+            <objects>
+                <viewController title="Public" id="QDK-9a-0ej" customClass="PublicViewController" customModule="picfeed" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xgQ-kM-VPR"/>
+                        <viewControllerLayoutGuide type="bottom" id="20E-U1-gk1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GND-dZ-HvO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mJM-Uc-rMv">
+                                <rect key="frame" x="0.0" y="20" width="414" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9c2-BV-epL">
+                                    <size key="itemSize" width="211" height="242"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GalleryCell" id="zp0-sL-rBy" customClass="GalleryCell" customModule="picfeed" customModuleProvider="target">
+                                        <rect key="frame" x="101.66666666666667" y="0.0" width="211" height="242"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="211" height="242"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ao6-np-oM2">
+                                                    <rect key="frame" x="0.0" y="0.0" width="211" height="212.66666666666666"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Posted" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zr1-Ey-c3e">
+                                                    <rect key="frame" x="-1" y="220.66666666666663" width="211.33333333333334" height="13.333333333333343"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="ao6-np-oM2" firstAttribute="leading" secondItem="zp0-sL-rBy" secondAttribute="leading" id="2FH-tI-Uj6"/>
+                                            <constraint firstItem="ao6-np-oM2" firstAttribute="top" secondItem="zp0-sL-rBy" secondAttribute="top" id="BLH-mn-HOU"/>
+                                            <constraint firstItem="zr1-Ey-c3e" firstAttribute="centerX" secondItem="zp0-sL-rBy" secondAttribute="centerX" id="OUe-DH-oXT"/>
+                                            <constraint firstAttribute="bottom" secondItem="zr1-Ey-c3e" secondAttribute="bottom" constant="8" id="Wqa-QR-P2N"/>
+                                            <constraint firstItem="zr1-Ey-c3e" firstAttribute="width" secondItem="zp0-sL-rBy" secondAttribute="width" id="hgA-de-QMk"/>
+                                            <constraint firstAttribute="trailing" secondItem="ao6-np-oM2" secondAttribute="trailing" id="iMr-77-PkU"/>
+                                            <constraint firstItem="zr1-Ey-c3e" firstAttribute="top" secondItem="ao6-np-oM2" secondAttribute="bottom" constant="8" id="oPy-8E-ZIW"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="ImageView" destination="ao6-np-oM2" id="NtX-np-fY2"/>
+                                            <outlet property="dateLabel" destination="zr1-Ey-c3e" id="y8T-ag-w38"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="rJr-b1-Ku7" appends="YES" id="zPl-wA-i9c"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="mJM-Uc-rMv" secondAttribute="trailing" id="Ngl-qd-Nm4"/>
+                            <constraint firstItem="mJM-Uc-rMv" firstAttribute="leading" secondItem="GND-dZ-HvO" secondAttribute="leading" id="Pab-sX-gjm"/>
+                            <constraint firstItem="mJM-Uc-rMv" firstAttribute="top" secondItem="xgQ-kM-VPR" secondAttribute="bottom" id="pUg-eJ-e3I"/>
+                            <constraint firstItem="20E-U1-gk1" firstAttribute="top" secondItem="mJM-Uc-rMv" secondAttribute="bottom" id="yhc-Te-3oh"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Public" id="akg-ls-XGE">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-17"/>
+                    </tabBarItem>
+                    <connections>
+                        <outlet property="collectionView" destination="mJM-Uc-rMv" id="auv-Zf-9FE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5o7-3J-EJG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pinchGestureRecognizer id="rJr-b1-Ku7">
+                    <connections>
+                        <action selector="userPinched:" destination="QDK-9a-0ej" id="Gyr-qp-IF8"/>
+                    </connections>
+                </pinchGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="830" y="124"/>
+        </scene>
         <!--Post-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -65,10 +150,8 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FilterCell" id="gVi-VF-a5X" customClass="FilterCell" customModule="picfeed" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="2.6666666666666665" width="100" height="125"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="100" height="125"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filter " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PB6-Xn-E0T">
@@ -141,9 +224,9 @@
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1047.8260869565217" y="119.83695652173914"/>
+            <point key="canvasLocation" x="1546" y="451"/>
         </scene>
-        <!--Gallery-->
+        <!--Private-->
         <scene sceneID="mvY-3H-Zel">
             <objects>
                 <viewController id="zlT-64-Tj6" customClass="GalleryViewController" customModule="picfeed" customModuleProvider="target" sceneMemberID="viewController">
@@ -213,7 +296,7 @@
                             <constraint firstAttribute="trailing" secondItem="gvS-7B-oKV" secondAttribute="trailing" id="wPl-Nw-ArC"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Gallery" id="PfC-CE-eRv">
+                    <tabBarItem key="tabBarItem" title="Private" id="PfC-CE-eRv">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-17"/>
                     </tabBarItem>
                     <connections>
@@ -227,7 +310,7 @@
                     </connections>
                 </pinchGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1046.376811594203" y="945.6521739130435"/>
+            <point key="canvasLocation" x="836" y="798"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="wKj-of-CeM">
@@ -242,6 +325,7 @@
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Xxg-yn-p1t"/>
                         <segue destination="zlT-64-Tj6" kind="relationship" relationship="viewControllers" id="h2B-jS-bD3"/>
+                        <segue destination="QDK-9a-0ej" kind="relationship" relationship="viewControllers" id="9TA-25-Nh4"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bOw-b0-F0x" userLabel="First Responder" sceneMemberID="firstResponder"/>

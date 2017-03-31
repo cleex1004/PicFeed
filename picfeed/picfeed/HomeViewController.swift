@@ -44,11 +44,11 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        filterButtonTopConstraint.constant = 8
+        filterButtonTopConstraint.constant = 5
         UIView.animate(withDuration: 0.5) {
             self.view.layoutIfNeeded()
         }
-        postButtonBottomConstraint.constant = 8
+        postButtonBottomConstraint.constant = 5
         UIView.animate(withDuration: 0.5) {
             self.view.layoutIfNeeded()
         }
@@ -100,7 +100,7 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate {
         //guard let image = self.imageView.image else { return }
         
         if self.collectionViewHeightConstraint.constant == 0 {
-            self.collectionViewHeightConstraint.constant = 150
+            self.collectionViewHeightConstraint.constant = 130
             UIView.animate(withDuration: 0.5) {
                 self.view.layoutIfNeeded()
             }

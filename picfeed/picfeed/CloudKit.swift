@@ -66,6 +66,10 @@ class CloudKit {
     func getPostsPrivate(completion: @escaping PostsCompletion) {
         let postQuery = CKQuery(recordType: "Post", predicate: NSPredicate(value: true))
         
+        let sortDescriptor = NSSortDescriptor(key: "creationDate", ascending: true)
+        
+        postQuery.sortDescriptors = [sortDescriptor]
+        
         self.privateDatabase.perform(postQuery, inZoneWith: nil) { (records, error) in
             if error != nil {
                 print(error!)
@@ -98,6 +102,10 @@ class CloudKit {
     
     func getPostsPublic(completion: @escaping PostsCompletion) {
         let postQuery = CKQuery(recordType: "Post", predicate: NSPredicate(value: true))
+        
+        let sortDescriptor = NSSortDescriptor(key: "creationDate", ascending: true)
+        
+        postQuery.sortDescriptors = [sortDescriptor]
         
         self.publicDatabase.perform(postQuery, inZoneWith: nil) { (records, error) in
             if error != nil {

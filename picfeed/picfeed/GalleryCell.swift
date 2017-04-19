@@ -19,7 +19,6 @@ class GalleryCell: UICollectionViewCell {
             self.ImageView.image = post.image
             self.DateLabel.text = DateFormatter.localizedString(from: post.date!, dateStyle: .short, timeStyle: .short)
             
-            
         }
     }
     

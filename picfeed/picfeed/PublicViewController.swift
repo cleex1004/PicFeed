@@ -1,27 +1,27 @@
 //
-//  GalleryViewController.swift
+//  PublicViewController.swift
 //  picfeed
 //
-//  Created by Christina Lee on 3/29/17.
+//  Created by Christina Lee on 3/30/17.
 //  Copyright © 2017 Christina Lee. All rights reserved.
 //
 
 import UIKit
 
-protocol GalleryViewControllerDelegate : class {
-    func galleryController(didSelect image: UIImage)
+protocol PublicViewControllerDelegate : class {
+    func publicController(didSelect image: UIImage)
 }
 
-class GalleryViewController: UIViewController {
-    
-    weak var delegate : GalleryViewControllerDelegate?
+class PublicViewController: UIViewController {
 
+    weak var delegate : PublicViewControllerDelegate?
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     var allPosts = [Post]() {
         didSet {
             self.collectionView.reloadData()
-        } 
+        }
     }
     
     override func viewDidLoad() {
@@ -33,17 +33,16 @@ class GalleryViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        updatePrivate()
+        updatePublic()
     }
     
-    func updatePrivate() {
-        CloudKit.shared.getPostsPrivate { (posts) in
+    func updatePublic() {
+        CloudKit.shared.getPostsPublic { (posts) in
             if let posts = posts {
                 self.allPosts = posts
             }
         }
     }
-    
     @IBAction func userPinched(_ sender: UIPinchGestureRecognizer) {
         guard let layout = collectionView.collectionViewLayout as? GalleryCollectionViewLayout else { return }
         
@@ -63,15 +62,13 @@ class GalleryViewController: UIViewController {
             print("Unknown sender state.")
         }
     }
-    
 }
 
 //MARK: UICollectionView DataSource Delegate Extension
-//mark adds to jumpbar
-extension GalleryViewController : UICollectionViewDataSource, UICollectionViewDelegate {
+extension PublicViewController : UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GalleryCell.identifier, for: indexPath) as! GalleryCell
-
+        
         cell.post = self.allPosts[indexPath.row]
         
         return cell
@@ -86,7 +83,8 @@ extension GalleryViewController : UICollectionViewDataSource, UICollectionViewDe
         
         let selectedPost = self.allPosts[indexPath.row]
         
-        delegate.galleryController(didSelect: selectedPost.image)
-        
+        delegate.publicController(didSelect: selectedPost.image)
     }
 }
+
+

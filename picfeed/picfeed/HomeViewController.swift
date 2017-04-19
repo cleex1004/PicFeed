@@ -28,16 +28,26 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate {
         super.viewDidLoad()
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
-        setupGalleryDelegate()
+        setupPublicDelegate()
+        setupPrivateDelegate()
         Filters.originalImage = imageView.image
     }
     
-    func setupGalleryDelegate() {
+    func setupPrivateDelegate() {
         if let tabBarController = self.tabBarController {
             guard let viewControllers = tabBarController.viewControllers else { return }
-            guard let galleryController = viewControllers[1] as? GalleryViewController else { return }
+            guard let privateController = viewControllers[1] as? GalleryViewController else { return }
             
-            galleryController.delegate = self
+            privateController.delegate = self
+        }
+    }
+    
+    func setupPublicDelegate() {
+        if let tabBarController = self.tabBarController {
+            guard let viewControllers = tabBarController.viewControllers else { return }
+            guard let publicController = viewControllers[2] as? PublicViewController else { return }
+            
+            publicController.delegate = self
         }
     }
     
@@ -45,37 +55,15 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate {
         super.viewDidAppear(animated)
         
         filterButtonTopConstraint.constant = 5
-        UIView.animate(withDuration: 0.5) {
+        UIView.animate(withDuration: 0.6) {
             self.view.layoutIfNeeded()
         }
         postButtonBottomConstraint.constant = 5
-        UIView.animate(withDuration: 0.5) {
+        UIView.animate(withDuration: 0.6) {
             self.view.layoutIfNeeded()
         }
 
     }
-
-//    func presentImagePickerWith(sourceType: UIImagePickerControllerSourceType) {
-//        
-//        self.imagePicker.delegate = self
-//        self.imagePicker.sourceType = sourceType
-//        self.present(self.imagePicker, animated: true, completion: nil)
-//    }
-//    
-//    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-//        self.dismiss(animated: true, completion: nil)
-//    }
-//    
-//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-//        if let originalImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-//            self.imageView.image = originalImage
-//            Filters.originalImage = originalImage
-//            self.collectionView.reloadData()
-//        }
-//        //print("Info:\(info)")
-//        self.dismiss(animated: true, completion: nil)
-//        //can call imagePickerControllerDidCancel
-//    }
     
 //MARK: Actions
     @IBAction func imageTapped(_ sender: Any) {
@@ -84,16 +72,40 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     @IBAction func postButtonPressed(_ sender: Any) {
-        if let image = self.imageView.image {
-            let newPost = Post(image: image, date: nil)
-            CloudKit.shared.save(post: newPost, completion: { (success) in
-                if success {
-                    print("Saved Post successfully to CloudKit!")
-                } else {
-                    print("Did NOT successfully save to CloudKit...")
-                }
-            })
+        let alertController = UIAlertController(title: "Private or Public", message: "Where would you liked to post this?", preferredStyle: .actionSheet)
+        let privateAction = UIAlertAction(title: "Private Post", style: .default) { (action) in
+            if let image = self.imageView.image {
+                let newPost = Post(image: image, date: nil)
+                CloudKit.shared.savePrivate(post: newPost, completion: { (success) in
+                    if success {
+                        print("Saved Post successfully to CloudKit!")
+                    } else {
+                        print("Did NOT successfully save to CloudKit...")
+                    }
+                })
+            }
         }
+        
+        let publicAction = UIAlertAction(title: "Public Post", style: .default) { (action) in
+            if let image = self.imageView.image {
+                let newPost = Post(image: image, date: nil)
+                CloudKit.shared.savePublic(post: newPost, completion: { (success) in
+                    if success {
+                        print("Saved Post successfully to CloudKit!")
+                    } else {
+                        print("Did NOT successfully save to CloudKit...")
+                    }
+                })
+            }
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alertController.addAction(privateAction)
+        alertController.addAction(publicAction)
+        alertController.addAction(cancelAction)
+        
+        self.present(alertController, animated: true, completion: nil)
     }
     
     @IBAction func filterButtonPressed(_ sender: Any) {
@@ -201,15 +213,22 @@ extension HomeViewController : UICollectionViewDataSource, UICollectionViewDeleg
     }
 }
 
-//MARK: GalleryViewController Delegate
-extension HomeViewController : GalleryViewControllerDelegate {
+//MARK: GalleryViewController PublicViewController Delegate
+extension HomeViewController : PublicViewControllerDelegate, GalleryViewControllerDelegate {
     func galleryController(didSelect image: UIImage) {
         self.imageView.image = image
         Filters.originalImage = image
         self.collectionViewHeightConstraint.constant = 0
         self.tabBarController?.selectedIndex = 0
     }
+    func publicController(didSelect image: UIImage) {
+        self.imageView.image = image
+        Filters.originalImage = image
+        self.collectionViewHeightConstraint.constant = 0
+        self.tabBarController?.selectedIndex = 0
+    }
 }
+
 
 
 //old action sheet

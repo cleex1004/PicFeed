@@ -9,11 +9,11 @@
 import UIKit
 
 enum FilterName : String {
-    case vintage = "CIPhotoEffectTransfer"
-    case blackAndWhite = "CIPhotoEffectMono"
-    case invert = "CIColorInvert"
-    case sepia = "CISepiaTone"
-    case instant = "CIPhotoEffectInstant"
+    case Vintage = "CIPhotoEffectTransfer"
+    case BlackAndWhite = "CIPhotoEffectMono"
+    case Inverted = "CIColorInvert"
+    case Sepia = "CISepiaTone"
+    case Instant = "CIPhotoEffectInstant"
 }
 
 typealias FilterCompletion = (UIImage?) -> ()
@@ -29,7 +29,7 @@ class Filters {
         self.context = CIContext(eaglContext: eaglContext, options: options)
     }
     
-    static var originalImage = UIImage()
+    static var originalImage : UIImage?
     
     func filter(name: FilterName, image: UIImage, completion: @escaping FilterCompletion){
         OperationQueue().addOperation {
